@@ -1,5 +1,9 @@
 # Table of contents
 
-* [Initial page](README.md)
-* [基础知识](ji-chu-zhi-shi.md)
+* [About](README.md)
+
+## C++基础知识 <a id="newstart"></a>
+
+* [基础知识](newstart/ji-chu-zhi-shi.md)
+* [排序算法](newstart/pai-xu-suan-fa.md)
 
