@@ -1,6 +1,7 @@
 # Table of contents
 
 * [About](README.md)
+* [Words](words.md)
 
 ## C++基础知识 <a id="newstart"></a>
 
