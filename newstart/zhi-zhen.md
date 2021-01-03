@@ -25,15 +25,20 @@ void swap2(int *a,int *b)
 void swap3(int *a,int *b)
 {
 	//a地址赋给temp,b地址给a,temp地址给b。函数内部a,b指向交换，但p1p2没有交换
-	printf("%d,%d\n",a,b);
 	int* temp= a;
 	a = b;
 	b = temp;
-	printf("%d,%d,%d",a,b,temp);
+}
+void swawp4(int *&p1,int *&p2)
+{
+	//swap3的升级版使用引用可以避免仅地址交换而非值交换，相当于直接改变main函数中的指针
+	int* temp = p1;
+	p1 = p2;
+	p2 = temp;
 }
 int main(){
 	int a=1,b=2;
-	int *p1 = &a,*p2 = &b;
+	int *p1 = &a,*p2 = &b;//常量ab不可以直接引用swap(&a,&b);
 	swap3(p1,p2);
 	printf("a=%d,b=%d\n",*p1,*p2);
 	return 0;
