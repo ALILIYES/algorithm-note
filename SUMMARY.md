@@ -5,7 +5,7 @@
 
 ## C++基础知识 <a id="newstart"></a>
 
-* [指针](newstart/zhi-zhen.md)
 * [基础知识](newstart/ji-chu-zhi-shi.md)
 * [排序算法](newstart/pai-xu-suan-fa.md)
+* [指针](newstart/zhi-zhen.md)
 
