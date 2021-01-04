@@ -9,3 +9,7 @@
 * [排序算法](newstart/pai-xu-suan-fa.md)
 * [指针](newstart/zhi-zhen.md)
 
+## 入门篇
+
+* [简单模拟](ru-men-pian/jian-dan-mo-ni.md)
+
