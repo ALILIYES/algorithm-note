@@ -232,9 +232,62 @@ int main(){
 } 
 ```
 
-{% hint style="success" %}
-2021年1月4日
-{% endhint %}
+### 🙂 Codeup3.1小节特殊乘法
 
-* [ ] 明天要把A+B问题重新写一遍
+网址：[http://codeup.hustoj.com/problem.php?cid=100000575&pid=2](http://codeup.hustoj.com/problem.php?cid=100000575&pid=2)
+
+```cpp
+#include<cstdio>
+#include<cstring>
+int main(){
+	char a[11],b[11];
+	while(scanf("%s%s",a,b)!=-1){
+		long long sum=0;
+		for(int i=0;i<strlen(a);i++){
+			for(int j=0;j<strlen(b);j++){
+				sum+=(a[i]-'0')*(b[j]-'0');
+			}
+		}
+		printf("%lld\n",sum);
+	}
+}
+```
+
+### Codeup3.1小节比较奇偶数个数
+
+网址：[http://codeup.hustoj.com/problem.php?cid=100000575&pid=3](http://codeup.hustoj.com/problem.php?cid=100000575&pid=3)
+
+```cpp
+#include<cstdio>
+int main(){
+	int n;
+	while(scanf("%d",&n)!=-1){
+		int one=0,two=0,num;
+		while(n!=0){
+			scanf("%d",&num);
+			if(num%2){
+				one++; 
+			}
+			else{
+				two++;
+			}
+			n--;
+		}
+		if(one<two){
+			printf("NO\n");
+		}
+		else{
+			printf("YES\n");
+		}
+	}
+} 
+```
+
+### Codeup3.1小节最短距离
+
+网址:
+
+```cpp
+
+```
 
