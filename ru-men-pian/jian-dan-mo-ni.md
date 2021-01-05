@@ -283,11 +283,77 @@ int main(){
 } 
 ```
 
-### Codeup3.1小节最短距离
+### 🙁 Codeup3.1小节最短距离
 
-网址:
+网址:[http://codeup.hustoj.com/problem.php?cid=100000575&pid=4](http://codeup.hustoj.com/problem.php?cid=100000575&pid=4)
+
+超时问题：在输入距离的时候就计算每个点到第一个点的距离，从而避免了后续多重循环相加的问题，后续计算点到点距离使用数组上到第一个点的值**相减**即可，正反距离为总和与正向相减即可。
+
+数组设置使用`vector<int> a(n);`可以实现使用变量来定义数组的操作，直接使用`int a[1]`只能使用常量定义。记得加上`#include<vector>`
+
+`#include<algorithm>`库函数中`min(a,b)`
+
+对数组点输入使用`scanf("%d",&a[i]);`别忘记地址符，给第一个操作好像不用地址符？
+
+正确不超时代码：
 
 ```cpp
+#include <iostream>
+#include <vector>
+#include<algorithm>
+using namespace std;
+int main() {
+	int n;
+	scanf("%d", &n);
+	vector<int> dis(n + 1);
+	int sum = 0, left, right, cnt;
+	for (int i = 1; i <= n; i++) {
+		int temp;
+		scanf("%d", &temp);
+		sum += temp;
+		dis[i] = sum;
+	}
+	scanf("%d", &cnt);
+	for (int i = 0; i < cnt; i++) {
+		scanf("%d %d", &left, &right);
+		if (left > right) swap(left, right);
+		int temp = dis[right - 1] - dis[left - 1];
+		printf("%d\n", min(temp, sum - temp));
+	}
+	return 0;
+}
+```
 
+超时代码：
+
+```cpp
+#include<cstdio>
+int get_dis(int dis[],int N,int start,int end,bool dir);
+
+int main(){
+	int N,M,temp,total;
+	//vector向量
+	int dis[100010]={0};
+	scanf("%d",&N);
+	for(int i=0;i<N;i++){
+		//数组输入要使用地址符 
+		scanf("%d",&dis[i]);
+		total+=dis[i];
+	}
+	scanf("%d",&M);
+	int start,end,s,e,add_dis;
+	for(int i=0;i<M;i++){
+		scanf("%d %d",&start,&end);
+		s=start-1;
+		e=end-1;
+		add_dis=0;
+		while(s!=e){
+			add_dis+=dis[s];
+			s = (s+1)%N;
+		}		
+		//可以使用min替代比较大小
+		printf("%d\n",add_dis<total-add_dis?add_dis:total-add_dis);
+	}
+}
 ```
 
