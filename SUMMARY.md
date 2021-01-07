@@ -12,4 +12,5 @@
 ## 入门篇
 
 * [简单模拟](ru-men-pian/jian-dan-mo-ni.md)
+* [查找元素](ru-men-pian/cha-zhao-yuan-su.md)
 
