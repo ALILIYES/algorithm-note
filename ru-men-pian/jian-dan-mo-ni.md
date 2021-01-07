@@ -41,7 +41,7 @@ int main(){
 } 
 ```
 
-### 😏 Codeup3.1小节剩下的树
+### 😏 问题A: 剩下的树
 
 网址:[http://codeup.hustoj.com/problem.php?cid=100000575&pid=0](http://codeup.hustoj.com/problem.php?cid=100000575&pid=0)
 
@@ -87,7 +87,7 @@ int main(){
 } 
 ```
 
-### 🙁 Codeup3.1小节A+B
+### 🙁 问题B: A+B
 
 网址：[http://codeup.hustoj.com/problem.php?cid=100000575&pid=1](http://codeup.hustoj.com/problem.php?cid=100000575&pid=1)
 
@@ -232,7 +232,7 @@ int main(){
 } 
 ```
 
-### 🙂 Codeup3.1小节特殊乘法
+### 🙂 问题C: 特殊乘法
 
 网址：[http://codeup.hustoj.com/problem.php?cid=100000575&pid=2](http://codeup.hustoj.com/problem.php?cid=100000575&pid=2)
 
@@ -253,7 +253,7 @@ int main(){
 }
 ```
 
-### Codeup3.1小节比较奇偶数个数
+### 🙂 问题D:比较奇偶数个数
 
 网址：[http://codeup.hustoj.com/problem.php?cid=100000575&pid=3](http://codeup.hustoj.com/problem.php?cid=100000575&pid=3)
 
@@ -283,7 +283,7 @@ int main(){
 } 
 ```
 
-### 🙁 Codeup3.1小节最短距离
+### 🙁 问题E: 最短距离
 
 网址:[http://codeup.hustoj.com/problem.php?cid=100000575&pid=4](http://codeup.hustoj.com/problem.php?cid=100000575&pid=4)
 
@@ -355,5 +355,141 @@ int main(){
 		printf("%d\n",add_dis<total-add_dis?add_dis:total-add_dis);
 	}
 }
+```
+
+### 🙂 问题 F: A+B和C \(15\)
+
+网址:[http://codeup.hustoj.com/problem.php?cid=100000575&pid=5](http://codeup.hustoj.com/problem.php?cid=100000575&pid=5)
+
+```cpp
+#include<cstdio>
+int main(){
+	int T,count=1;
+	long A,B,C;
+	scanf("%d",&T);
+	while(T--){
+		scanf("%ld%ld%ld",&A,&B,&C);
+		printf("Case #%d: ",count++);
+		if(A+B>C)printf("true\n");
+		else printf("false\n");
+	}
+} 
+```
+
+### 🙂 问题G: 数字分类
+
+网址:[http://codeup.hustoj.com/problem.php?cid=100000575&pid=6](http://codeup.hustoj.com/problem.php?cid=100000575&pid=6)
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int n, num, A1 = 0, A2 = 0, A5 = 0;
+    double A4 = 0.0;
+    cin >> n;
+    vector<int> v[5];
+    for (int i = 0; i < n; i++) {
+        cin >> num;
+        v[num%5].push_back(num);
+    }
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < v[i].size(); j++) {
+            if (i == 0 && v[i][j] % 2 == 0) A1 += v[i][j];
+            if (i == 1 && j % 2 == 0) A2 += v[i][j];
+            if (i == 1 && j % 2 == 1) A2 -= v[i][j];
+            if (i == 3) A4 += v[i][j];
+            if (i == 4 && v[i][j] > A5) A5 = v[i][j];
+        }
+    }
+    for (int i = 0; i < 5; i++) {
+        if (i != 0) printf(" ");
+        if (i == 0 && A1 == 0 || i != 0 && v[i].size() == 0) {
+            printf("N"); continue;
+        }
+        if (i == 0) printf("%d", A1);
+        if (i == 1) printf("%d", A2);
+        if (i == 2) printf("%d", v[2].size());
+        if (i == 3) printf("%.1f", A4 / v[3].size());
+        if (i == 4) printf("%d", A5);
+    }
+    return 0;
+}
+```
+
+```cpp
+#include<cstdio>
+int main(){
+	int N,temp,flag=0,count=0;
+	while(scanf("%d",&N)!=-1){
+		int A1=0,A2=0,A3=0,A4=0,A5=0;
+		for(int i=0;i<N;i++){
+			scanf("%d",&temp);
+			if(temp%5==0){
+                if(temp%2==0){
+				A1+=temp;
+			}}
+			else if(temp%5==1){
+				if(flag%2){A2-=temp;}
+				else{A2+=temp;}
+				flag++;
+			}
+			else if(temp%5==2){
+				A3++;
+			}
+			else if(temp%5==3){
+				A4+=temp;
+				count++;
+			}
+			else{
+				if(temp>A5)A5=temp;
+			}
+		}
+		if(A1)printf("%d ",A1);else printf("N ");
+		if(flag==0)printf("N ");
+		else{printf("%d ",A2);}
+		if(A3)printf("%d ",A3);else printf("N ");
+		if(A4) {double r=(A4*1.0)/count;printf("%.1f ",r);}else printf("N ");
+		if(A5)printf("%d",A5);else printf("N");
+		flag=0;
+	}
+}
+```
+
+### 🙂 问题H：部分A+B
+
+网址：[http://codeup.hustoj.com/problem.php?cid=100000575&pid=7](http://codeup.hustoj.com/problem.php?cid=100000575&pid=7)
+
+```cpp
+#include<cstdio>
+int cal(long A,int DA){
+	
+	int num=0;
+	while(A!=0){
+		if(A%10==DA){
+			num=num*10+DA;
+			A/=10;	
+		}
+		else{
+			A/=10;
+		}
+	}
+	return num;
+}
+int main(){
+	long long A,B;
+	int DA,DB;
+	while(scanf("%ld %d %ld %d",&A,&DA,&B,&DB)!=-1){
+		printf("%d\n",cal(A,DA)+cal(B,DB));
+	}
+}
+```
+
+#### 🙂 问题 I: 锤子剪刀布 \(20\)
+
+网址：
+
+```cpp
+
 ```
 
